@@ -134,20 +134,28 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Card.cpp" />
+    <ClCompile Include="Deck.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="Globals.cpp" />
     <ClCompile Include="GlutRender.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Sprite.cpp" />
+    <ClCompile Include="Utils.cpp" />
     <ClCompile Include="vec2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Card.h" />
+    <ClInclude Include="Deck.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="GlutCallbacks.h" />
     <ClInclude Include="GlutRender.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Sprite.h" />
+    <ClInclude Include="Utils.h" />
     <ClInclude Include="vec2.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,6 +1,6 @@
 #include "GameObject.h"
 
-GameObject::GameObject() : pos_(vec2()), size_(vec2()) {
+GameObject::GameObject() : pos_(vec2()), size_(vec2()), sprite_(Sprite()) {
 }
 
 void GameObject::set_pos(vec2 v) {
@@ -13,4 +13,8 @@ void GameObject::set_size(vec2 v) {
 
 void GameObject::add_sprite(const char* path) {
 	sprite_.load_texture(path);
+}
+
+void GameObject::render() const {
+	sprite_.render(pos_.x_, pos_.y_, size_.x_, size_.y_);
 }

@@ -15,6 +15,8 @@ public:
 	void set_size(vec2);
 	void add_sprite(const char*);
 
+	void render() const;
+
 private:
 
 	vec2 pos_;
@@ -22,5 +24,4 @@ private:
 	Sprite sprite_;
 
 };
-
 #endif

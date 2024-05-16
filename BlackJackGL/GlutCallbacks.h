@@ -1,7 +1,13 @@
 #include "Globals.h"
+#include "Game.h"
+
+Game game;
 
 static void display_callback(void) {
 	glClear(GL_COLOR_BUFFER_BIT);
+
+	game.display();
+
 	glutSwapBuffers();
 }
 
@@ -17,6 +23,9 @@ static void reshape_callback(int w, int h) {
 }
 
 static void idle_callback(void) {
+
+	game.idle();
+
 	glutPostRedisplay();
 }
 
@@ -27,6 +36,7 @@ static void keyboard_up_callback(unsigned char key, int x, int y) {
 }
 
 static void mouse_callback(int button, int state, int x, int y) {
+	game.mouse(button, state, x, y);
 }
 
 int gl_main(int argc, char** argv) {
@@ -37,6 +47,8 @@ int gl_main(int argc, char** argv) {
 	glutInitWindowSize((int)window_width, (int)window_height);
 	glutCreateWindow(title.c_str());
 
+	game.init();
+
 	glutDisplayFunc(display_callback);
 	glutReshapeFunc(reshape_callback);
 	glutIdleFunc(idle_callback);
@@ -44,7 +56,6 @@ int gl_main(int argc, char** argv) {
 	glutKeyboardFunc(keyboard_callback);
 	glutKeyboardUpFunc(keyboard_up_callback);
 	glutMouseFunc(mouse_callback);
-
 
 	glutMainLoop();
 

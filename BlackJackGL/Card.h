@@ -3,7 +3,7 @@
 
 #include "GameObject.h"
 
-enum class Rank {
+enum Rank {
 	ACE = 1,
 	TWO,
 	THREE,
@@ -19,8 +19,8 @@ enum class Rank {
 	KING
 };
 
-enum class Suit {
-	CLUBS,	
+enum Suit {
+	CLUBS = 1,	
 	DIAMONDS,
 	HEARTS,
 	SPADES
