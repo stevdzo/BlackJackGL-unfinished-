@@ -1,8 +1,34 @@
 #include "Game.h"
 
-void Game::init() {
+Game::Game() {
+	//current_game_state_ = std::make_unique<MenuGameState>();
+	change_game_state(std::make_unique<MenuGameState>());
+}
 
-	deck_ = std::make_unique<Deck>();	
+//void Game::init() {
+//
+//}
+
+void Game::init_menu() {
+
+	gui_ = std::make_unique<GUI>();
+
+	gui_->add_element(std::make_unique<Button>(
+		vec2(window_width / 2, 300), 
+		vec2(200, 50), 
+		ButtonType::PLAY, 
+		[this]() { change_game_state(std::make_unique<RunningGameState>()); } ));
+
+	gui_->add_element(std::make_unique<Button>(
+		vec2(window_width / 2, 200),
+		vec2(200, 50), 
+		ButtonType::QUIT,
+		[this]() { change_game_state(std::make_unique<MenuGameState>()); }));
+	
+}
+
+void Game::init_running() {
+	deck_ = std::make_unique<Deck>();
 	deck_->shuffle_deck();
 
 	player_1_ = std::make_unique<Player>();
@@ -16,13 +42,20 @@ void Game::init() {
 	player_2_->add_card(deck_->draw_card());
 }
 
-void Game::update(float delta_time) {
+void Game::change_game_state(std::unique_ptr<GameState> gs) {
+
+	if (current_game_state_)
+		current_game_state_->exit(*this);
+	current_game_state_ = std::move(gs);
+	current_game_state_->enter(*this);
 }
 
-void Game::render() const {
-	//deck_->render();
-	player_1_->render();
-	player_2_->render();
+void Game::update(float delta_time) { 
+	current_game_state_->execute_update(*this, delta_time);
+}
+
+void Game::render() {
+	current_game_state_->execute_render(*this);
 }
 
 void Game::reshape(int w, int h) {
@@ -44,7 +77,9 @@ void Game::idle(void) {
 }
 
 void Game::mouse(unsigned int button, int state, int x, int y) {
-	/*if (button == GLUT_LEFT)
+	Input::instance().mouse(button, state, x, y);
+
+	if (button == GLUT_LEFT)
 		if (state == GLUT_UP)
-			player_1_->add_card(deck_->draw_card());*/
+			gui_->on_button_click(Input::instance().get_mouse_vector());
 }

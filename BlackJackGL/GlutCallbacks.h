@@ -47,7 +47,7 @@ int gl_main(int argc, char** argv) {
 	glutInitWindowSize((int)window_width, (int)window_height);
 	glutCreateWindow(title.c_str());
 
-	game.init();
+	//game.init();
 
 	glutDisplayFunc(display_callback);
 	glutReshapeFunc(reshape_callback);

@@ -32,6 +32,8 @@ public:
 
 	Card(Rank rank, Suit suit);
 
+	~Card() override = default;
+
 	Rank get_rank() const;
 	Rank get_suit() const;
 
