@@ -37,6 +37,8 @@ public:
 	Rank get_rank() const;
 	Rank get_suit() const;
 
+	void render() const override;
+
 private:
 
 	Rank rank_;

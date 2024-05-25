@@ -13,21 +13,31 @@ enum class ButtonType {
 	BACK
 };
 
+enum class ButtonShape {
+
+	RECTANGLE,
+	CIRCLE
+
+};
+
 class Button : public GUIElement {
 
 public:
 
 	Button();
-	Button(vec2 pos, vec2 size, ButtonType type, std::function<void()> callback);
+	Button(vec2 pos, vec2 size, ButtonShape shape, std::function<void()> callback);
 
 	~Button() override = default;
 
-	void click();
+	ButtonShape get_shape() const;
 
+	virtual void click();
 
-private:
+	void render() const override;
 
-	ButtonType type_;
+protected:
+
+	ButtonShape shape_;
 	bool clicked_;
 	std::function<void()> callback_;
 

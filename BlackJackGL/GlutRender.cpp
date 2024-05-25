@@ -52,3 +52,33 @@ void render_wireframe_rectangle(float pos_x, float pos_y, float size_w, float si
 	glEnd();
 	glColor3f(1.0f, 1.0f, 1.0f);
 }
+
+void render_circle(float pos_x, float pos_y, float radius, float red, float green, float blue) {
+
+	int segments = 360;
+	glBegin(GL_TRIANGLE_FAN);
+	for (int i = 0; i <= segments; ++i) {
+		float angle = 2. * PI * float(i) / float(segments);
+		glColor3f(red, green, blue);
+		glVertex2f(pos_x + radius * cos(angle), pos_y + radius * sin(angle));
+	}
+	glEnd();
+}
+
+void render_text(const char* string, float pos_x, float pos_y, float red, float green, float blue, float scale) {
+
+	char* c;
+
+	glColor3f(red, green, blue);
+	glPushMatrix();
+	glTranslatef(pos_x, pos_y + 8, 0.0);
+	glLineWidth(2.0);
+	glScalef(0.14f * scale, 0.12f * scale, 0.0);
+
+	for (c = (char*) string; *c != '\0'; c++)
+		glutStrokeCharacter(GLUT_STROKE_ROMAN, *c);
+
+	glPopMatrix();
+
+	glColor3f(1.0f, 1.0f, 1.0f);
+}

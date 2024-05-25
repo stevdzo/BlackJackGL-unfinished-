@@ -14,13 +14,16 @@ public:
 
 	void add_element(std::unique_ptr<GUIElement> guie);
 
-	void on_button_click(vec2 mouse);
+	void on_element_click(vec2 mouse);
 
 	void render() const;
 
 private:
 
 	std::vector<std::unique_ptr<GUIElement>> elements_;
+
+	bool rec_shape(Button* btn, vec2 mouse);
+	bool circle_shape(Button* btn, vec2 mouse);
 
 };
 #endif

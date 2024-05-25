@@ -12,7 +12,9 @@ public:
 
 	~GUIElement() override = default;
 
-private:
+	void render() const override;
+
+protected:
 
 };
 #endif

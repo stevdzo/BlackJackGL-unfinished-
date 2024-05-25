@@ -11,6 +11,8 @@
 
 #include <GL/freeglut.h>
 
+#define PI 3.14159
+
 class vec2;
 
 extern const float window_width;

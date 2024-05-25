@@ -135,6 +135,7 @@
   <ItemGroup>
     <ClCompile Include="Button.cpp" />
     <ClCompile Include="Card.cpp" />
+    <ClCompile Include="Chip.cpp" />
     <ClCompile Include="Deck.cpp" />
     <ClCompile Include="Game.cpp" />
     <ClCompile Include="GameObject.cpp" />
@@ -143,18 +144,20 @@
     <ClCompile Include="GlutRender.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="GUIElement.cpp" />
+    <ClCompile Include="GUIText.cpp" />
+    <ClCompile Include="GUI_Func.cpp" />
     <ClCompile Include="Input.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="MenuGameState.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="RunningGameState.cpp" />
     <ClCompile Include="Sprite.cpp" />
-    <ClCompile Include="Utils.cpp" />
     <ClCompile Include="vec2.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Button.h" />
     <ClInclude Include="Card.h" />
+    <ClInclude Include="Chip.h" />
     <ClInclude Include="Deck.h" />
     <ClInclude Include="Game.h" />
     <ClInclude Include="GameObject.h" />
@@ -164,13 +167,14 @@
     <ClInclude Include="GlutRender.h" />
     <ClInclude Include="GUI.h" />
     <ClInclude Include="GUIElement.h" />
+    <ClInclude Include="GUIText.h" />
+    <ClInclude Include="GUI_Func.h" />
     <ClInclude Include="Input.h" />
     <ClInclude Include="MenuGameState.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="RunningGameState.h" />
     <ClInclude Include="Sprite.h" />
-    <ClInclude Include="Utils.h" />
     <ClInclude Include="vec2.h" />
   </ItemGroup>
   <ItemGroup>

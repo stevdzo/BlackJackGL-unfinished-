@@ -11,3 +11,7 @@ Rank Card::get_rank() const {
 Rank Card::get_suit() const {
     return Rank();
 }
+
+void Card::render() const {
+    GameObject::render();
+}

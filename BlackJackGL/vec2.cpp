@@ -21,3 +21,7 @@ const vec2 vec2::operator+(float p_s) {
 const vec2 vec2::operator-(float p_s) {
     return vec2(x_ - p_s, y_ - p_s);
 }
+
+float vec2::magnitude() const {
+    return std::sqrt(x_ * x_ + y_ * y_);
+}

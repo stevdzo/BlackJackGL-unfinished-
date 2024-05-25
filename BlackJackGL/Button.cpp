@@ -4,22 +4,19 @@ Button::Button() : GUIElement() {
 
 }
 
-Button::Button(vec2 pos, vec2 size, ButtonType type, std::function<void()> callback) : GUIElement(pos, size), type_(type), callback_(callback) {
+Button::Button(vec2 pos, vec2 size, ButtonShape shape, std::function<void()> callback) : GUIElement(pos, size), shape_(shape), callback_(callback) {
 
 }
 
-void Button::click() {
+ButtonShape Button::get_shape() const {
+	return shape_;
+}
 
+void Button::click() {
 	if (callback_)
 		callback_();
+}
 
-	/*switch (type_) {
-	
-	case ButtonType::PLAY:
-		std::cout << "Play button clicked" << '\n';
-		break;
-	case ButtonType::QUIT:
-		std::cout << "Quit button clicked" << '\n';
-		break;
-	}*/
+void Button::render() const {
+	GameObject::render();
 }

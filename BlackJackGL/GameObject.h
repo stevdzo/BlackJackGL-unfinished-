@@ -22,9 +22,9 @@ public:
 	vec2 get_pos() const;
 	vec2 get_size() const;
 
-	void render() const;
+	virtual void render() const;
 
-private:
+protected:
 
 	vec2 pos_;
 	vec2 size_;
