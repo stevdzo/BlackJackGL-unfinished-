@@ -8,7 +8,7 @@ class GUIElement : public GameObject {
 public:
 
 	GUIElement();
-	GUIElement(vec2 pos, vec2 size);
+	GUIElement(std::string tag, vec2 pos, vec2 size);
 
 	~GUIElement() override = default;
 

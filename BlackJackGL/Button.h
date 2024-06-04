@@ -25,20 +25,25 @@ class Button : public GUIElement {
 public:
 
 	Button();
-	Button(vec2 pos, vec2 size, ButtonShape shape, std::function<void()> callback);
+	Button(std::string tag, vec2 pos, vec2 size, ButtonShape shape, std::function<void()> callback);
 
 	~Button() override = default;
 
 	ButtonShape get_shape() const;
 
+	void enabled(bool);
+	bool enabled(void);
+
 	virtual void click();
+
+	void set_callback(std::function<void()> c);
 
 	void render() const override;
 
 protected:
 
 	ButtonShape shape_;
-	bool clicked_;
+	bool enabled_;
 	std::function<void()> callback_;
 
 };

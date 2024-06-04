@@ -42,7 +42,7 @@
     <ClCompile Include="Sprite.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="GlutRender.cpp">
+    <ClCompile Include="Render_Func.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Card.cpp">
@@ -87,6 +87,9 @@
     <ClCompile Include="Button.cpp">
       <Filter>Source Files\gui</Filter>
     </ClCompile>
+    <ClCompile Include="Update_Func.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GlutCallbacks.h">
@@ -104,7 +107,7 @@
     <ClInclude Include="Sprite.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="GlutRender.h">
+    <ClInclude Include="Render_Func.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Card.h">
@@ -151,6 +154,9 @@
     </ClInclude>
     <ClInclude Include="Button.h">
       <Filter>Header Files\gui</Filter>
+    </ClInclude>
+    <ClInclude Include="Update_Func.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

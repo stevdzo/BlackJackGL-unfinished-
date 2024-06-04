@@ -9,8 +9,8 @@ void RunningGameState::enter(Game& g) {
 
 void RunningGameState::execute_render(Game& g) {
 	//std::cout << "Executing RunningGameState" << std::endl;
-	g.player_1_->render();
-	g.player_2_->render();
+	g.player_->render();
+	g.dealer_->render();
 	g.gui_->render();
 }
 

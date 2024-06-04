@@ -3,6 +3,7 @@
 
 #include "GUIElement.h"
 #include "Button.h"
+#include "GUIText.h"
 
 class GUI {
 
@@ -17,6 +18,8 @@ public:
 	void on_element_click(vec2 mouse);
 
 	void render() const;
+
+	void update_text(std::string tag, int v);
 
 private:
 

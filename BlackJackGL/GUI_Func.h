@@ -2,6 +2,7 @@
 #define GUI_FUNC_H
 
 class Game;
+class Chip;
 
 namespace btn {
 
@@ -10,7 +11,8 @@ namespace btn {
 	void menu(Game& g);
 	void quit();
 
-	void place_bet(Game& g);
+	void place_bet(Game& g, Chip& c);
+	void deal(Game& g);
 	void hit();
 
 }

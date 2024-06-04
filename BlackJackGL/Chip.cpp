@@ -3,15 +3,17 @@
 Chip::Chip() : Button() {
 }
 
-Chip::Chip(vec2 pos, vec2 size, ButtonShape shape, std::function<void()> callback) : Button(pos, size, shape, callback) {
+Chip::Chip(std::string tag, vec2 pos, vec2 size, ButtonShape shape, std::function<void()> callback) : Button(tag, pos, size, shape, callback), value_(500) {
 
 }
 
 void Chip::click() {
 	if (callback_)
 		callback_();
+}
 
-
+int Chip::get_value() const {
+	return value_;
 }
 
 void Chip::render() const {

@@ -38,11 +38,9 @@ public:
 
 	std::unique_ptr<GameState> current_game_state_;
 	std::unique_ptr<GameState> previous_game_state_;
-
 	std::unique_ptr<Deck> deck_;
-	std::unique_ptr<Player> player_1_;
-	std::unique_ptr<Player> player_2_;
-
+	std::unique_ptr<Player> player_;
+	std::unique_ptr<Player> dealer_;
 	std::unique_ptr<GUI> gui_;
 };
 #endif

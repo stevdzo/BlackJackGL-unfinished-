@@ -141,7 +141,8 @@
     <ClCompile Include="GameObject.cpp" />
     <ClCompile Include="GameState.cpp" />
     <ClCompile Include="Globals.cpp" />
-    <ClCompile Include="GlutRender.cpp" />
+    <ClCompile Include="Render_Func.cpp" />
+    <ClCompile Include="Update_Func.cpp" />
     <ClCompile Include="GUI.cpp" />
     <ClCompile Include="GUIElement.cpp" />
     <ClCompile Include="GUIText.cpp" />
@@ -164,7 +165,8 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="Globals.h" />
     <ClInclude Include="GlutCallbacks.h" />
-    <ClInclude Include="GlutRender.h" />
+    <ClInclude Include="Render_Func.h" />
+    <ClInclude Include="Update_Func.h" />
     <ClInclude Include="GUI.h" />
     <ClInclude Include="GUIElement.h" />
     <ClInclude Include="GUIText.h" />

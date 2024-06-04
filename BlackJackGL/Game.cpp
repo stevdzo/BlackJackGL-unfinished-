@@ -14,18 +14,21 @@ void Game::init_menu() {
 	gui_ = std::make_unique<GUI>();
 
 	gui_->add_element(std::make_unique<Button>(
+		"btn_play",
 		vec2(window_width / 2, 300), 
 		vec2(200, 50), 
 		ButtonShape::RECTANGLE,
 		[this]() { btn::play(*this); }));
 
 	gui_->add_element(std::make_unique<Button>(
+		"btn_quit",
 		vec2(window_width / 2, 200),
 		vec2(200, 50), 
 		ButtonShape::RECTANGLE,
 		[this]() { btn::quit(); }));
 
 	gui_->add_element(std::make_unique<GUIText>(
+		"txt_blackjack",
 		vec2(window_width / 2, window_height-50),
 		"BLACKJACK!!"));
 	
@@ -35,47 +38,57 @@ void Game::init_running() {
 
 	gui_ = std::make_unique<GUI>();
 
-	/*gui_->add_element(std::make_unique<Button>(
-		vec2(200, 100),
-		vec2(100, 100),
+	gui_->add_element(std::make_unique<Button>(
+		"btn_confirm",
+		vec2(window_width/2., 75),
+		vec2(200, 50),
 		ButtonShape::RECTANGLE,
-		[this]() { btn::back(*this); }));*/
+		[this]() { btn::deal(*this); }));
 
 	gui_->add_element(std::make_unique<GUIText>(
-		vec2(window_width / 2 - 150, window_height - 50),
+		TXT_PLACE_BET,
+		vec2(window_width / 2 - 150, window_height - 100),
 		"Place Your Bets!"));
 
-	for (size_t i = 0; i < 5; i++)
-	{
-		gui_->add_element(std::make_unique<Chip>(
-			vec2(100, 100),
+	gui_->add_element(std::make_unique<GUIText>(
+		TXT_TOTAL_BET_LABEL,
+		vec2(10, window_height - 50),
+		"Total bet:"));
+
+	gui_->add_element(std::make_unique<GUIText>(
+		TXT_TOTAL_BET,
+		vec2(175, window_height - 50),
+		"0"));
+
+	gui_->add_element(std::make_unique<GUIText>(
+		TXT_PLAYER_HAND,
+		vec2(250, 300),
+		" "));
+
+	gui_->add_element(std::make_unique<GUIText>(
+		TXT_DEALER_HAND,
+		vec2(550, 300),
+		" "));
+
+	for (size_t i = 0; i < 3; i++) {
+
+		auto chip = std::make_unique<Chip>(
+			"chip_500_" + (i+1),
+			vec2(50, 50),
 			vec2(50, 50),
 			ButtonShape::CIRCLE,
-			[this]() { btn::place_bet(*this); }));
-	}
+			[] () {}
+		);
 
-	for (size_t i = 0; i < 3; i++)
-	{
-		gui_->add_element(std::make_unique<Chip>(
-			vec2(200, 100),
-			vec2(50, 50),
-			ButtonShape::CIRCLE,
-			[this]() { btn::place_bet(*this); }));
-	}
+		Chip& chip_ref = *chip;
+		chip->set_callback([this, &chip_ref]() { btn::place_bet(*this, chip_ref); });
 
+		gui_->add_element(std::move(chip));
+	}
 
 	deck_ = std::make_unique<Deck>();
-	deck_->shuffle_deck();
-
-	player_1_ = std::make_unique<Player>();
-	//player_1_->set_hand_pos(vec2(player_1_pos_x, player_1_pos_y));
-	//player_1_->add_card(deck_->draw_card());
-	//player_1_->add_card(deck_->draw_card());
-
-	player_2_ = std::make_unique<Player>();
-	//player_2_->set_hand_pos(vec2(player_2_pos_x, player_2_pos_y));
-	//player_2_->add_card(deck_->draw_card());
-	//player_2_->add_card(deck_->draw_card());
+	player_ = std::make_unique<Player>();
+	dealer_ = std::make_unique<Player>();
 }
 
 void Game::change_game_state(std::unique_ptr<GameState> gs) {

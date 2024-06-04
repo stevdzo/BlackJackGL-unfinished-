@@ -27,15 +27,21 @@ void GUI::on_element_click(vec2 mouse) {
 			break;
 
 		}
-
-		
-
 	}
 }
 
 void GUI::render() const {
 	for (auto& el : elements_) {
 		el->render();
+	}
+}
+
+void GUI::update_text(std::string tag, int v) {
+	for (auto& el : elements_) {
+		if (el->get_tag() == tag) {
+			auto txt = dynamic_cast<GUIText*>(el.get());
+			txt->set_text(std::to_string(v));			
+		}
 	}
 }
 
@@ -50,7 +56,6 @@ bool GUI::rec_shape(Button* btn, vec2 mouse) {
 	float bottom = btn->get_pos().y_ + btn->get_size().y_ / 2.;
 
 	if (x >= left && x <= right && y >= top && y <= bottom) {
-
 		btn->click();
 		return true;
 	}
@@ -61,7 +66,7 @@ bool GUI::circle_shape(Button* btn, vec2 mouse) {
 
 	vec2 dist_vec = mouse - btn->get_pos();
 	float distance = dist_vec.magnitude();
-	float btn_radius = btn->get_size().x_/2.;
+	float btn_radius = btn->get_size().x_;
 
 	if (distance <= btn_radius) {
 		btn->click();

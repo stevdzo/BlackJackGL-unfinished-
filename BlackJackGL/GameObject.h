@@ -10,7 +10,8 @@ class GameObject {
 public:
 
 	GameObject();
-	GameObject(vec2 pos, 
+	GameObject(std::string tag,
+		       vec2 pos, 
 			   vec2 size);
 
 	virtual ~GameObject() = default;
@@ -19,13 +20,16 @@ public:
 	void set_size(vec2);
 	void add_sprite(const char*);
 
+	std::string get_tag() const;
 	vec2 get_pos() const;
 	vec2 get_size() const;
 
 	virtual void render() const;
+	void update(float delta_time);
 
 protected:
 
+	std::string tag_;
 	vec2 pos_;
 	vec2 size_;
 	Sprite sprite_;

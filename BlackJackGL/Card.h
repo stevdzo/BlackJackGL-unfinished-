@@ -26,6 +26,11 @@ enum Suit {
 	SPADES
 };
 
+enum Texture {
+	FRONT = 0,
+	BACK
+};
+
 class Card : public GameObject {
 
 public:
@@ -34,15 +39,21 @@ public:
 
 	~Card() override = default;
 
+	void set_value(int);
+
 	Rank get_rank() const;
-	Rank get_suit() const;
+	Suit get_suit() const;
+
+	void set_tex(Texture tex);
 
 	void render() const override;
 
 private:
 
+	int value_;
+
 	Rank rank_;
 	Suit suit_;
-
+	Texture tex_;
 };
 #endif
