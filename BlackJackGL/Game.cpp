@@ -14,14 +14,14 @@ void Game::init_menu() {
 	gui_ = std::make_unique<GUI>();
 
 	gui_->add_element(std::make_unique<Button>(
-		"btn_play",
+		BTN_PLAY,
 		vec2(window_width / 2, 300), 
 		vec2(200, 50), 
 		ButtonShape::RECTANGLE,
 		[this]() { btn::play(*this); }));
 
 	gui_->add_element(std::make_unique<Button>(
-		"btn_quit",
+		BTN_QUIT,
 		vec2(window_width / 2, 200),
 		vec2(200, 50), 
 		ButtonShape::RECTANGLE,
@@ -39,11 +39,29 @@ void Game::init_running() {
 	gui_ = std::make_unique<GUI>();
 
 	gui_->add_element(std::make_unique<Button>(
-		"btn_confirm",
+		BTN_DEAL,
 		vec2(window_width/2., 75),
 		vec2(200, 50),
 		ButtonShape::RECTANGLE,
 		[this]() { btn::deal(*this); }));
+
+	gui_->add_element(std::make_unique<Button>(
+		BTN_HIT,
+		vec2(window_width / 4., 75),
+		vec2(100, 50),
+		ButtonShape::RECTANGLE,
+		[this]() { btn::hit(*this); }, 
+		false,
+		false));
+
+	gui_->add_element(std::make_unique<Button>(
+		BTN_STAY,
+		vec2(window_width - window_width / 4., 75),
+		vec2(100, 50),
+		ButtonShape::RECTANGLE,
+		[this]() { btn::stay(*this); },
+		false,
+		false));
 
 	gui_->add_element(std::make_unique<GUIText>(
 		TXT_PLACE_BET,

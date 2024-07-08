@@ -63,3 +63,7 @@ int Player::get_value() const {
 void Player::set_value(int v) {
 	value_ = v;
 }
+
+void Player::reveal_card() {
+	hand_[0]->set_tex(FRONT);
+}

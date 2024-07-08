@@ -8,7 +8,7 @@ class GUIElement : public GameObject {
 public:
 
 	GUIElement();
-	GUIElement(std::string tag, vec2 pos, vec2 size);
+	GUIElement(std::string tag, vec2 pos, vec2 size, bool visible=true);
 
 	~GUIElement() override = default;
 

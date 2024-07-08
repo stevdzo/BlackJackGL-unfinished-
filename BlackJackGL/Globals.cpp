@@ -17,3 +17,9 @@ const std::string TXT_PLAYER_HAND = "txt_player_bet";
 const std::string TXT_DEALER_HAND = "txt_dealer_bet";
 const std::string TXT_TOTAL_BET_LABEL = "txt_total_bet_label";
 const std::string TXT_PLACE_BET = "txt_place_bet";
+
+const std::string BTN_PLAY = "btn_play";
+const std::string BTN_QUIT = "btn_quit";
+const std::string BTN_DEAL = "btn_deal";
+const std::string BTN_HIT  = "btn_hit";
+const std::string BTN_STAY = "btn_stay";

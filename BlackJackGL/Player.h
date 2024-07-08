@@ -22,6 +22,8 @@ public:
 	int get_value() const;
 	void set_value(int);
 
+	void reveal_card();
+
 private:
 
 	std::vector<std::unique_ptr<Card>> hand_;

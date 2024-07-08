@@ -36,13 +36,27 @@ void GUI::render() const {
 	}
 }
 
-void GUI::update_text(std::string tag, int v) {
+void GUI::update_text(const std::string& tag, int v) {
 	for (auto& el : elements_) {
 		if (el->get_tag() == tag) {
 			auto txt = dynamic_cast<GUIText*>(el.get());
-			txt->set_text(std::to_string(v));			
+
+			if (v == 0)
+				txt->set_text("?");
+			else
+				txt->set_text(std::to_string(v));
 		}
 	}
+}
+
+void GUI::disable_button(Button& btn) {
+	btn.visible(false);
+	btn.enabled(false);
+}
+
+void GUI::enable_button(Button& btn) {
+	btn.visible(true);
+	btn.enabled(true);
 }
 
 bool GUI::rec_shape(Button* btn, vec2 mouse) {

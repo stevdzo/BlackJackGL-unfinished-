@@ -1,6 +1,8 @@
 #ifndef GUI_FUNC_H
 #define GUI_FUNC_H
 
+#include "dbg.h"
+
 class Game;
 class Chip;
 
@@ -13,9 +15,7 @@ namespace btn {
 
 	void place_bet(Game& g, Chip& c);
 	void deal(Game& g);
-	void hit();
-
+	void hit(Game& g);
+	void stay(Game& g);
 }
-
-
 #endif

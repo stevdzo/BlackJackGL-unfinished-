@@ -1,7 +1,7 @@
 #ifndef GAME_OBJECT_H_
 #define GAME_OBJECT_H_
 
-#include "Globals.h"
+#include "dbg.h"
 #include "Sprite.h"
 #include "vec2.h"
 
@@ -12,7 +12,8 @@ public:
 	GameObject();
 	GameObject(std::string tag,
 		       vec2 pos, 
-			   vec2 size);
+			   vec2 size,
+			   bool visible=true);
 
 	virtual ~GameObject() = default;
 
@@ -24,6 +25,9 @@ public:
 	vec2 get_pos() const;
 	vec2 get_size() const;
 
+	bool visible() const;
+	void visible(bool);
+
 	virtual void render() const;
 	void update(float delta_time);
 
@@ -33,6 +37,8 @@ protected:
 	vec2 pos_;
 	vec2 size_;
 	Sprite sprite_;
+
+	bool visible_;
 
 };
 #endif

@@ -8,7 +8,7 @@ class Chip : public Button {
 public:
 	
 	Chip();
-	Chip(std::string tag, vec2 pos, vec2 size, ButtonShape shape, std::function<void()> callback);
+	Chip(std::string tag, vec2 pos, vec2 size, ButtonShape shape, std::function<void()> callback, bool visible=true, bool enabled = true);
 
 	~Chip() override = default;
 

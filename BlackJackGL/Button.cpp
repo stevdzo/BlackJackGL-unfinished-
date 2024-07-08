@@ -4,7 +4,7 @@ Button::Button() : GUIElement() {
 
 }
 
-Button::Button(std::string tag, vec2 pos, vec2 size, ButtonShape shape, std::function<void()> callback) : GUIElement(tag, pos, size), shape_(shape), enabled_(true), callback_(callback) {
+Button::Button(std::string tag, vec2 pos, vec2 size, ButtonShape shape, std::function<void()> callback, bool visible, bool enabled) : GUIElement(tag, pos, size, visible), shape_(shape), enabled_(enabled), callback_(callback) {
 
 }
 

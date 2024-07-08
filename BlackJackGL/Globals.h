@@ -8,6 +8,7 @@
 #include <ctime>
 #include <memory>
 #include <string>
+#include <sstream>
 
 #include <GL/freeglut.h>
 
@@ -32,5 +33,11 @@ extern const std::string TXT_PLAYER_HAND;
 extern const std::string TXT_DEALER_HAND;
 extern const std::string TXT_TOTAL_BET_LABEL;
 extern const std::string TXT_PLACE_BET;
+
+extern const std::string BTN_PLAY;
+extern const std::string BTN_QUIT;
+extern const std::string BTN_DEAL;
+extern const std::string BTN_HIT;
+extern const std::string BTN_STAY;
 
 #endif

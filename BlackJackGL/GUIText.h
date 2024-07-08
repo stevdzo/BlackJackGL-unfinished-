@@ -8,7 +8,7 @@ class GUIText : public GUIElement {
 public:
 
 	GUIText();
-	GUIText(std::string tag, vec2 pos, std::string str);
+	GUIText(std::string tag, vec2 pos, std::string str, bool visible=true);
 
 	~GUIText() override = default;
 

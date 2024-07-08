@@ -3,7 +3,7 @@
 Chip::Chip() : Button() {
 }
 
-Chip::Chip(std::string tag, vec2 pos, vec2 size, ButtonShape shape, std::function<void()> callback) : Button(tag, pos, size, shape, callback), value_(500) {
+Chip::Chip(std::string tag, vec2 pos, vec2 size, ButtonShape shape, std::function<void()> callback, bool visible, bool enabled) : Button(tag, pos, size, shape, callback, visible, enabled), value_(500) {
 
 }
 
